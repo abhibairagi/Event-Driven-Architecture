@@ -35,6 +35,45 @@ docker run -p 9092:9092 \
 confluentinc/cp-kafka
 ```
 
+### Add OpenAI API Key and Google Service Account Credentials
+
+To get started, you'll need to set up your OpenAI API key and Google Service Account credentials. Follow these steps:
+
+#### 1. OpenAI API Key
+
+1. Obtain your OpenAI API key from the [OpenAI Dashboard](https://platform.openai.com/account/api-keys).
+2. Open the `.env` file located in the root directory of the project (create one if it doesn't exist).
+3. Add the following line to the `.env` file, replacing `YOUR_OPENAI_API_KEY` with your actual OpenAI API key:
+
+   ```env
+   openai=YOUR_OPENAI_API_KEY
+   ```
+
+#### 1. Google Service Account Credentials
+
+1. Go to the Google Cloud Console.
+2. Select your project or create a new one.
+3. Navigate to IAM & Admin > Service Accounts.
+4. Click Create Service Account.
+5. Follow the prompts to create the service account and download the JSON key file.
+6. Save the JSON key file in a secure location.key:
+
+   ```env
+   GOOGLE_APPLICATION_CREDENTIALS=path/to/your/service-account-file.json
+
+   ```
+
+### Change IP Address in `client.js`
+
+To get started, you'll need to update the IP address in the `client.js` file to match your own setup. Follow these steps:
+
+1. Open the `client.js` file located in the `src` directory (or wherever your `client.js` file is located).
+2. Find the line where the IP address is defined. It should look something like this:
+
+   ```javascript
+   const serverIp = "<Private IP>"; // Replace with your server's IP address
+   ```
+
 ## Running
 
 - front-end
@@ -47,17 +86,6 @@ confluentinc/cp-kafka
     - npm start
   - text-to-speech
     - npm start
-
-### Change IP Address in `client.js`
-
-To get started, you'll need to update the IP address in the `client.js` file to match your own setup. Follow these steps:
-
-1. Open the `client.js` file located in the `src` directory (or wherever your `client.js` file is located).
-2. Find the line where the IP address is defined. It should look something like this:
-
-   ```javascript
-   const serverIp = "<Private IP>"; // Replace with your server's IP address
-   ```
 
 ## License
 
